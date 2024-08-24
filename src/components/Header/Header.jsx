@@ -1,3 +1,6 @@
+// external
+import { Link } from "react-router-dom";
+
 // css
 import classes from "./Header.module.css";
 
@@ -6,15 +9,17 @@ const Header = () => {
     <div className={classes.container}>
       <div className={classes.innerContainer}>
         <div className={classes.leftContainer}>
-          <img src="learnify-logo.png" className={classes.logo} />
+          <Link to="/">
+            <img src="learnify-logo.png" className={classes.logo} />
+          </Link>
         </div>
         <div className={classes.rightContainer}>
-          <a href="/login" className={classes.loginButton}>
+          <Link to="/login" className={classes.loginButton}>
             Log in
-          </a>
-          <a href="/signup" className={classes.signupButton}>
+          </Link>
+          <Link to="/signup" className={classes.signupButton}>
             Sign up free
-          </a>
+          </Link>
         </div>
       </div>
     </div>
