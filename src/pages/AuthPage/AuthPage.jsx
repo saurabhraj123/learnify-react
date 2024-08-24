@@ -1,9 +1,17 @@
+// external
 import PropTypes from "prop-types";
+import { useAuth0 } from "@auth0/auth0-react";
+
+// internal
 import { useTopLoadingBar } from "../../hooks";
+
+// css
 import classes from "./AuthPage.module.css";
 
 const AuthPage = (props) => {
   const { setTopBarProgress, type } = props;
+
+  const { loginWithRedirect } = useAuth0();
 
   // to show the top loading bar
   useTopLoadingBar({ setTopBarProgress, type });
@@ -19,7 +27,13 @@ const AuthPage = (props) => {
         <h3 className={classes.heading}>{headingLabel}</h3>
         <button
           className={classes.googleButton}
-          // onClick={() => signIn("google")}
+          onClick={() => {
+            loginWithRedirect({
+              authorizationParams: {
+                connection: "google-oauth2",
+              },
+            });
+          }}
         >
           <img
             src="/google.png"

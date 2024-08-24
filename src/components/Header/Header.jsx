@@ -14,11 +14,11 @@ const Header = () => {
           </Link>
         </div>
         <div className={classes.rightContainer}>
-          <Link to="/login" className={classes.loginButton}>
-            Log in
+          <Link to="/signup" className={classes.loginButton}>
+            Contact
           </Link>
-          <Link to="/signup" className={classes.signupButton}>
-            Sign up free
+          <Link to="/login" className={classes.signupButton}>
+            Log in
           </Link>
         </div>
       </div>
