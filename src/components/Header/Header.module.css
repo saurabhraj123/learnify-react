@@ -1,0 +1,41 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(100% - 32px);
+  height: 28px;
+  background-color: white;
+  padding: 24px 16px;
+  font-weight: 500;
+  color: rgba(107, 114, 128, 1);
+}
+
+.innerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1240px;
+  width: 100%;
+}
+
+.logo {
+  width: 180px;
+  height: 54px;
+}
+
+.rightContainer {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.loginButton {
+  color: rgba(107, 114, 128, 1);
+}
+
+.signupButton {
+  color: rgb(29, 78, 216);
+  background-color: rgb(219, 234, 254);
+  padding: 12px 16px;
+  border-radius: 8px;
+}
