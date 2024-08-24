@@ -2,7 +2,10 @@
 import PropTypes from "prop-types";
 
 // internal
-import { useTopLoadingBar } from "../hooks";
+import { useTopLoadingBar } from "../../hooks";
+
+// css
+import classes from "./AuthPage.module.css";
 
 const AuthPage = (props) => {
   const { setTopBarProgress, type } = props;
@@ -10,7 +13,11 @@ const AuthPage = (props) => {
   // to show the top loading bar
   useTopLoadingBar({ setTopBarProgress, type });
 
-  return <div>{type === "LOGIN" ? "Log in page" : "Sign up page"}</div>;
+  return (
+    <div className={classes.container}>
+      {type === "LOGIN" ? "Log in page" : "Sign up page"}
+    </div>
+  );
 };
 
 AuthPage.propTypes = {

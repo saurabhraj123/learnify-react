@@ -1,3 +1,9 @@
+:root {
+  --header-height: 28px;
+  --header-padding-top-and-bottom: 24px;
+  --footer-width: 120px;
+}
+
 body {
   margin: 0;
   padding: 0;

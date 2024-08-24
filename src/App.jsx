@@ -3,11 +3,13 @@ import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 
 // components
-import Header from "./components/Header";
-import AuthPage from "./pages/AuthPage";
-import LandingPage from "./pages/LangingPage";
-import PageNotFound from "./pages/PageNotFound";
+import { Header, Footer } from "./components";
 import LoadingBar from "react-top-loading-bar";
+
+// pages
+import AuthPage from "./pages/AuthPage";
+import LandingPage from "./pages/LandingPage/LangingPage";
+import PageNotFound from "./pages/PageNotFound/PageNotFound";
 
 function App() {
   const [topBarProgress, setTopBarProgress] = useState(0);
@@ -17,10 +19,12 @@ function App() {
       <LoadingBar
         color="#6381f3"
         height={3}
-        waitingTime={500}
+        waitingTime={200}
+        loaderSpeed={150}
         progress={topBarProgress}
       />
       <Header setTopBarProgress={setTopBarProgress} />
+
       <Routes>
         <Route
           path="/login"
@@ -40,6 +44,8 @@ function App() {
         />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
+
+      <Footer />
     </>
   );
 }

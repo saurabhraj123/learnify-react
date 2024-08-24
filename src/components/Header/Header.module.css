@@ -3,9 +3,9 @@
   align-items: center;
   justify-content: center;
   width: calc(100% - 32px);
-  height: 28px;
+  height: var(--header-height);
   background-color: white;
-  padding: 24px 16px;
+  padding: var(--header-padding-top-and-bottom) 16px;
   font-weight: 500;
   color: rgba(107, 114, 128, 1);
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);

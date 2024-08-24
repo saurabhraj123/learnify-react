@@ -1,0 +1,5 @@
+.container {
+  min-height: calc(
+    100vh - var(--footer-width) - 77px
+  ); /* 77px is the height of the header including padding */
+}
