@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { useAuth0 } from "@auth0/auth0-react";
 
 // internal
-import { useTopLoadingBar } from "../../hooks";
+import { useRedirectIfAuthenticated, useTopLoadingBar } from "../../hooks";
 
 // css
 import classes from "./AuthPage.module.css";
@@ -11,10 +11,13 @@ import classes from "./AuthPage.module.css";
 const AuthPage = (props) => {
   const { setTopBarProgress, type } = props;
 
-  const { loginWithRedirect } = useAuth0();
+  const { loginWithRedirect, isAuthenticated, user } = useAuth0();
 
   // to show the top loading bar
   useTopLoadingBar({ setTopBarProgress, type });
+
+  // redirect the user to dashbaord if authenticated
+  useRedirectIfAuthenticated({ isAuthenticated, user });
 
   const headingLabel =
     type === "LOGIN"
