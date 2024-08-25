@@ -11,11 +11,14 @@ import AuthPage from "./pages/AuthPage";
 import LandingPage from "./pages/LandingPage/LangingPage";
 import PageNotFound from "./pages/PageNotFound/PageNotFound";
 
+// css
+import classes from "./App.module.css";
+
 function App() {
   const [topBarProgress, setTopBarProgress] = useState(0);
 
   return (
-    <>
+    <div className={classes.container}>
       <LoadingBar
         color="#6381f3"
         height={3}
@@ -46,7 +49,7 @@ function App() {
       </Routes>
 
       <Footer />
-    </>
+    </div>
   );
 }
 
