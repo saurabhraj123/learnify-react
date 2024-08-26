@@ -1,8 +1,11 @@
 // external
 import PropTypes from "prop-types";
 
-// internal
+// hooks
 import { useTopLoadingBar } from "../../hooks";
+
+// components
+import { LandingPageLayout } from "../../components";
 
 // css
 import classes from "./LandingPage.module.css";
@@ -13,7 +16,11 @@ const LangingPage = (props) => {
   // to show the top loading bar
   useTopLoadingBar({ setTopBarProgress });
 
-  return <div className={classes.container}>Langing page</div>;
+  return (
+    <LandingPageLayout>
+      <div className={classes.container}>Langing page</div>
+    </LandingPageLayout>
+  );
 };
 
 LangingPage.propTypes = {

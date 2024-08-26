@@ -3,7 +3,6 @@ import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 
 // components
-import { Header, Footer } from "./components";
 import LoadingBar from "react-top-loading-bar";
 
 // pages
@@ -26,7 +25,6 @@ function App() {
         loaderSpeed={150}
         progress={topBarProgress}
       />
-      <Header setTopBarProgress={setTopBarProgress} />
 
       <Routes>
         <Route
@@ -47,8 +45,6 @@ function App() {
         />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
-
-      <Footer />
     </div>
   );
 }
