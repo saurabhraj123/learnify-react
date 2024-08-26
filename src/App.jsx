@@ -7,8 +7,9 @@ import LoadingBar from "react-top-loading-bar";
 
 // pages
 import AuthPage from "./pages/AuthPage";
-import LandingPage from "./pages/LandingPage/LangingPage";
-import PageNotFound from "./pages/PageNotFound/PageNotFound";
+import LandingPage from "./pages/LandingPage";
+import PageNotFound from "./pages/PageNotFound";
+import Dashboard from "./pages/Dashboard";
 
 // css
 import classes from "./App.module.css";
@@ -38,6 +39,10 @@ function App() {
           element={
             <AuthPage type="SIGNUP" setTopBarProgress={setTopBarProgress} />
           }
+        />
+        <Route
+          path="/dashboard"
+          element={<Dashboard setTopBarProgress={setTopBarProgress} />}
         />
         <Route
           path="/"

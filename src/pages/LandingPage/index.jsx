@@ -1,2 +1,2 @@
-import comp from "./LandingPage";
+import comp from "./LangingPage";
 export default comp;
