@@ -1,5 +1,5 @@
 // external
-import PropsTypes from "prop-types";
+import PropTypes from "prop-types";
 
 // hooks
 import {
@@ -11,9 +11,9 @@ import {
 import { Sidebar } from "../../components";
 
 // css
-import classes from "./Dashboard.module.css";
+import classes from "./AddNewPage.module.css";
 
-const Dashboard = (props) => {
+const AddNewPage = (props) => {
   const { setTopBarProgress } = props;
 
   // redirect to login if un-authenticated
@@ -29,8 +29,8 @@ const Dashboard = (props) => {
   );
 };
 
-Dashboard.propTypes = {
-  setTopBarProgress: PropsTypes.func.isRequired,
+AddNewPage.propTypes = {
+  setTopBarProgress: PropTypes.func.isRequired,
 };
 
-export default Dashboard;
+export default AddNewPage;

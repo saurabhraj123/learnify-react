@@ -4,6 +4,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 // icons
 import { MdDashboard } from "react-icons/md";
 import { FiLogOut } from "react-icons/fi";
+import { IoIosAddCircleOutline } from "react-icons/io";
 
 // components
 import { IconWithTooltip } from "../../components";
@@ -28,6 +29,11 @@ const Sidebar = () => {
       icon: <MdDashboard {...iconProps} />,
       href: "/dashboard",
       tooltipText: "Dashboard",
+    },
+    {
+      icon: <IoIosAddCircleOutline {...iconProps} />,
+      href: "/new",
+      tooltipText: "New",
     },
   ];
 

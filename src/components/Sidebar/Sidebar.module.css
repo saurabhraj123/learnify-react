@@ -15,7 +15,9 @@
 
 .topSection {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
   padding: 40px 0;
 }
 

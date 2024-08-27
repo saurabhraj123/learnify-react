@@ -10,6 +10,7 @@ import AuthPage from "./pages/AuthPage";
 import LandingPage from "./pages/LandingPage";
 import PageNotFound from "./pages/PageNotFound";
 import Dashboard from "./pages/Dashboard";
+import AddNewPage from "./pages/AddNewPage";
 
 // css
 import classes from "./App.module.css";
@@ -43,6 +44,10 @@ function App() {
         <Route
           path="/dashboard"
           element={<Dashboard setTopBarProgress={setTopBarProgress} />}
+        />
+        <Route
+          path="/new"
+          element={<AddNewPage setTopBarProgress={setTopBarProgress} />}
         />
         <Route
           path="/"
