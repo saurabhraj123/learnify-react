@@ -1,5 +1,6 @@
 // external
 import PropTypes from "prop-types";
+import _ from "lodash";
 
 // css
 import classes from "./Input.module.css";
@@ -11,8 +12,18 @@ const Input = (props) => {
     style,
     inputComp: InputComp,
     labelProps,
-    inputProps,
+    value,
+    name,
+    onChange = _.noop,
+    onClick = _.noop,
   } = props;
+
+  const inputProps = {
+    value,
+    name,
+    onClick,
+    onChange,
+  };
 
   return (
     <div className={classes.container} style={style}>
@@ -32,7 +43,10 @@ Input.propTypes = {
   style: PropTypes.object,
   inputComp: PropTypes.elementType,
   labelProps: PropTypes.object,
-  inputProps: PropTypes.object,
+  value: PropTypes.any,
+  name: PropTypes.string,
+  onClick: PropTypes.func,
+  onChange: PropTypes.func,
 };
 
 export default Input;
