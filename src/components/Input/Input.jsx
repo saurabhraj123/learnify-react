@@ -9,7 +9,7 @@ const Input = (props) => {
     label,
     type = "text",
     style,
-    inputComp,
+    inputComp: InputComp,
     labelProps,
     inputProps,
   } = props;
@@ -17,7 +17,11 @@ const Input = (props) => {
   return (
     <div className={classes.container} style={style}>
       <label {...labelProps}>{label}</label>
-      {inputComp ? inputComp : <input type={type} {...inputProps} />}
+      {InputComp ? (
+        <InputComp {...inputProps} />
+      ) : (
+        <input type={type} {...inputProps} />
+      )}
     </div>
   );
 };
@@ -26,7 +30,7 @@ Input.propTypes = {
   label: PropTypes.string,
   type: PropTypes.string,
   style: PropTypes.object,
-  inputComp: PropTypes.node,
+  inputComp: PropTypes.elementType,
   labelProps: PropTypes.object,
   inputProps: PropTypes.object,
 };

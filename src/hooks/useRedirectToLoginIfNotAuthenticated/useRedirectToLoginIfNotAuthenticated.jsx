@@ -6,8 +6,6 @@ const useRedirectToLoginIfNotAuthenticated = () => {
   const navigate = useNavigate();
   const { isLoading, isAuthenticated } = useAuth0();
 
-  console.log({ isLoading });
-
   if (!isAuthenticated && !isLoading) {
     navigate("/login");
   }
