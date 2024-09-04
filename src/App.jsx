@@ -11,6 +11,7 @@ import LandingPage from "./pages/LandingPage";
 import PageNotFound from "./pages/PageNotFound";
 import Dashboard from "./pages/Dashboard";
 import AddNewPage from "./pages/AddNewPage";
+import AuthSuccessRedirect from "./pages/AuthSuccessRedirect";
 
 // css
 import classes from "./App.module.css";
@@ -29,6 +30,7 @@ function App() {
       />
 
       <Routes>
+        <Route path="/login/success" element={<AuthSuccessRedirect />} />
         <Route
           path="/login"
           element={

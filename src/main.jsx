@@ -13,7 +13,8 @@ createRoot(document.getElementById("root")).render(
         domain="dev-kfpcl4qpxpzjazlc.us.auth0.com"
         clientId="UxgfSnR4NWOz7gAUrveb8v1dvh2P1Amu"
         authorizationParams={{
-          redirect_uri: `${window.location.origin}/dashboard`,
+          redirect_uri: `${window.location.origin}/login/success`,
+          audience: "http://localhost:6060",
         }}
       >
         <App />
