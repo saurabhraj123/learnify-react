@@ -3,8 +3,42 @@
 }
 
 .mainSection {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+}
+
+.formSection {
   padding-left: 64px;
   padding-top: 20px;
+}
+
+.accordionSection {
+  flex: 1;
+  border: 1px solid rgba(128, 128, 128, 0.296);
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.5);
+  height: 100vh;
+  box-sizing: border-box;
+  position: relative;
+  overflow: auto;
+}
+
+.accordionEmptyMessage {
+  font-size: 16px;
+  color: rgb(37, 37, 37);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -40px;
+}
+
+.sectionTitle {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  margin-left: 4px;
 }
 
 .mainSection h1 {

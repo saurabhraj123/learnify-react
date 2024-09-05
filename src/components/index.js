@@ -6,6 +6,7 @@ import Tooltip from "./Tooltip";
 import IconWithTooltip from "./IconWithTooltip";
 import Input from "./Input";
 import Button from "./Button";
+import Accordion from "./Accordion";
 
 export {
   Footer,
@@ -16,4 +17,5 @@ export {
   IconWithTooltip,
   Input,
   Button,
+  Accordion,
 };

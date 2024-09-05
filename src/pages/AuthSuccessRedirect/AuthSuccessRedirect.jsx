@@ -9,7 +9,7 @@ import { postAuthToBackend } from "/utils/api";
 
 /**
  * This page is used to redirect the user to dashboard
- * It is required so as to same the new user to the database
+ * It is required so as to save the new user to the database
  */
 const AuthSuccessRedirect = () => {
   const { isAuthenticated, user, getAccessTokenSilently, logout } = useAuth0();
