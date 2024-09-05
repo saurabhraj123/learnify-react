@@ -1,2 +1,2 @@
-import comp from "./AuthSuccessRedirect.jsx";
-export default comp;
+import AuthSuccessRedirect from "./AuthSuccessRedirect.jsx";
+export default AuthSuccessRedirect;

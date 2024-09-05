@@ -12,7 +12,7 @@ import { postAuthToBackend } from "/utils/api";
  * It is required so as to same the new user to the database
  */
 const AuthSuccessRedirect = () => {
-  const { isAuthenticated, user, getAccessTokenSilently } = useAuth0();
+  const { isAuthenticated, user, getAccessTokenSilently, logout } = useAuth0();
 
   const navigate = useNavigate();
 
@@ -21,15 +21,18 @@ const AuthSuccessRedirect = () => {
       if (isAuthenticated && user) {
         try {
           const token = await getAccessTokenSilently();
-          console.log({ token });
           await postAuthToBackend(token, {
             email: user.email,
-            name: user.name,
+            first_name: user.given_name,
+            last_name: user.family_name,
+            image_url: user.picture,
           });
           navigate("/dashboard");
         } catch (e) {
-          navigate("/login");
-          toast.error("Failed to authenticate");
+          toast.error("Authentication failed.");
+          setTimeout(() => {
+            logout({ logoutParams: { returnTo: window.location.origin } });
+          }, 1000);
         }
       }
     };
@@ -39,7 +42,7 @@ const AuthSuccessRedirect = () => {
 
   return (
     <>
-      <div>Redirecting to dashboard..</div>
+      <div>Please wait while we authenticate you..</div>
       <Toaster />
     </>
   );
