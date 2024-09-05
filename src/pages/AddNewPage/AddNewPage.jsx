@@ -115,22 +115,6 @@ const AddNewPage = (props) => {
       })),
     }));
   }, [payload]);
-  [
-    {
-      title: "Section 1: Introduction",
-      videos: [
-        { title: "Video 1: Welcome to the course" },
-        { title: "Video 2: Course Overview" },
-      ],
-    },
-    {
-      title: "Section 2: Advanced Concepts",
-      videos: [
-        { title: "Video 1: Deep Dive into State Management" },
-        { title: "Video 2: Optimizing Performance" },
-      ],
-    },
-  ];
 
   const accordionSectionClasses = classNames({
     [classes.accordionSection]: true,
