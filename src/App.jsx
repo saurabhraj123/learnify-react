@@ -1,9 +1,13 @@
 // external
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
 
 // components
 import LoadingBar from "react-top-loading-bar";
+
+// utils
+import { setupAxiosInterceptors } from "./utils/axios";
 
 // pages
 import AuthPage from "./pages/AuthPage";
@@ -18,6 +22,12 @@ import classes from "./App.module.css";
 
 function App() {
   const [topBarProgress, setTopBarProgress] = useState(0);
+
+  const { getAccessTokenSilently } = useAuth0();
+
+  useEffect(() => {
+    setupAxiosInterceptors(getAccessTokenSilently);
+  }, [getAccessTokenSilently]);
 
   return (
     <div className={classes.container}>

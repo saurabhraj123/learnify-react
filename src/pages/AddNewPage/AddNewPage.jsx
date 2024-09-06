@@ -5,6 +5,7 @@ import classNames from "classnames";
 import PropTypes from "prop-types";
 import toast, { Toaster } from "react-hot-toast";
 import { CircularProgress } from "@mui/material";
+import { useAuth0 } from "@auth0/auth0-react";
 
 // hooks
 import {
@@ -14,6 +15,7 @@ import {
 
 // utils
 import { getPayloadForMutation } from "./AddNewPageUtils";
+import { apiClient } from "/src//utils/axios";
 
 // components
 import { Sidebar, Input, Button, Accordion } from "../../components";
@@ -36,6 +38,10 @@ const styles = {
 const AddNewPage = (props) => {
   const { setTopBarProgress } = props;
 
+  const { user } = useAuth0();
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   // redirect to login if un-authenticated
   useRedirectToLoginIfNotAuthenticated();
 
@@ -57,7 +63,7 @@ const AddNewPage = (props) => {
     }));
   };
 
-  const handleClickUpload = async () => {
+  const handleFolderSelection = async () => {
     if (!window.showDirectoryPicker)
       return toast.error("Browser doesn't support directory picker");
 
@@ -75,7 +81,6 @@ const AddNewPage = (props) => {
         formData: courseData,
       });
       setPayload(payload);
-      console.log({ payload });
       setIsPayloadProcessing(false);
     } catch (err) {
       setIsPayloadProcessing(false);
@@ -86,9 +91,20 @@ const AddNewPage = (props) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    // Process form submission
-    console.log("Submitting form data:", formData);
-    // Implement further submission logic here
+    if (_.isEmpty(payload)) return;
+    try {
+      setIsSubmitting(true);
+      const { data } = await apiClient.post(`/api/courses`, {
+        ...payload,
+        email: user.email,
+      });
+      console.log({ data });
+      setIsSubmitting(false);
+      toast.success("Course added successfully.");
+    } catch (e) {
+      setIsSubmitting(false);
+      toast.error("Error submitting course.");
+    }
   };
 
   const UploadButtonComp = (props) => {
@@ -134,7 +150,7 @@ const AddNewPage = (props) => {
                 {...inputProps}
                 label="Select a folder:"
                 inputComp={UploadButtonComp}
-                onClick={handleClickUpload}
+                onClick={handleFolderSelection}
               />
               <Input
                 {...inputProps}
@@ -150,7 +166,12 @@ const AddNewPage = (props) => {
                 value={formData.author}
                 onChange={handleInputChange}
               />
-              <Button type="submit" text="Submit" style={styles.submitBtn} />
+              <Button
+                type="submit"
+                text={isSubmitting ? "Submitting..." : "Submit"}
+                style={styles.submitBtn}
+                disabled={isSubmitting}
+              />
             </form>
           </div>
           <div className={accordionSectionClasses}>
