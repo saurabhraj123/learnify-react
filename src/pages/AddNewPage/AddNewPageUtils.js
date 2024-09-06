@@ -39,8 +39,8 @@ async function getVideoDuration(file) {
 const getSections = async (dirHandle) => {
   const sections = [];
   const dummySection = {
-    title: "Dummy section",
-    sourceTitle: "Dummy section",
+    title: "Untitled",
+    sourceTitle: "Untitled",
   };
 
   const dummyFiles = [];
@@ -70,7 +70,7 @@ const getSections = async (dirHandle) => {
   }
 
   // Add dummySection to sections
-  if (_.isEmpty(dummyFiles) > 0) {
+  if (!_.isEmpty(dummyFiles)) {
     const sortedFiles = _.orderBy(dummyFiles, "title");
     dummySection.files = sortedFiles;
     sections.push(dummySection);
