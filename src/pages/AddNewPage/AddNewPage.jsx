@@ -68,6 +68,7 @@ const AddNewPage = (props) => {
       const courseData = { title: courseTitle, author: formData.author };
       handleInputChange({ target: { name: "title", value: courseTitle } });
 
+      setPayload(null);
       setIsPayloadProcessing(true);
       const payload = await getPayloadForMutation({
         dirHandle,
