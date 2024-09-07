@@ -1,0 +1,20 @@
+.mainSection {
+  position: fixed;
+  left: 64px;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  padding: 40px;
+}
+
+.header {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 24px;
+}
+
+.coursesContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}

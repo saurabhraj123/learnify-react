@@ -1,0 +1,26 @@
+.container {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.value {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.icon {
+  font-size: 24px;
+}

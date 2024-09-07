@@ -12,9 +12,7 @@ export const setupAxiosInterceptors = (getAccessTokenSilently) => {
     async (config) => {
       try {
         const token = await getAccessTokenSilently();
-        if (token) {
-          config.headers.Authorization = `Bearer ${token}`;
-        }
+        config.headers.Authorization = `Bearer ${token}`;
       } catch (error) {
         console.error("Failed to get Auth0 token", error);
       }

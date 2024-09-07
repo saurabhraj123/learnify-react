@@ -97,6 +97,7 @@ const AddNewPage = (props) => {
       const { data } = await apiClient.post(`/api/courses`, {
         ...payload,
         email: user.email,
+        author: formData.author,
       });
       console.log({ data });
       setIsSubmitting(false);
